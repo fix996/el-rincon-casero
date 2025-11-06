@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Rincón Casero - Comida Casera de Calidad</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <!-- Aquí puedes reemplazar con tu propio logo -->
+                <img src="logo rincon casero.png" alt="El Rincón Casero" id="logo">
+                <h1>El Rincón Casero</h1>
+            </div>
+            
+            <!-- Menú para desktop -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#menu">Menú</a></li>
+                    <li><a href="#pedir-online">Pedir Online</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </li>
+                    <li><button class="btn-login" id="adminAccessBtn">Admin</button></li>
+                </ul>
+            </nav>
+            
+            <!-- Menú para móvil -->
+            <div class="mobile-nav">
+                <div class="cart-icon mobile-cart" id="mobileCartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Menú móvil desplegable -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <h3>El Rincón Casero</h3>
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul>
+                <li><a href="#inicio" class="mobile-menu-link">Inicio</a></li>
+                <li><a href="#menu" class="mobile-menu-link">Menú</a></li>
+                <li><a href="#pedir-online" class="mobile-menu-link">Pedir Online</a></li>
+                <li><a href="#nosotros" class="mobile-menu-link">Nosotros</a></li>
+                <li><a href="#ubicacion" class="mobile-menu-link">Ubicación</a></li>
+                <li><a href="#contacto" class="mobile-menu-link">Contacto</a></li>
+                <li><button class="btn-login mobile-admin-btn" id="mobileAdminBtn">Admin</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Deliciosa Comida Casera</h2>
+                <p>Disfruta de los sabores auténticos de nuestra cocina, preparados con ingredientes frescos y de calidad.</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn btn-primary">Ver Menú</a>
+                    <a href="#pedir-online" class="btn btn-secondary">Pedir Online</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="nosotros">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Nuestra Historia</h2>
+                    <p>En El Rincón Casero, nos dedicamos a preparar comida con el mismo amor y cuidado que en casa. Nuestros platos están elaborados con ingredientes frescos y recetas tradicionales que han pasado de generación en generación.</p>
+                    <p>Desde nuestras hamburguesas artesanales hasta nuestros sándwiches gourmet, cada bocado está pensado para transportarte a esos sabores de la infancia, pero con un toque moderno y creativo.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <span>Ingredientes Frescos</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-utensils"></i>
+                            <span>Preparación Artesanal</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <span>Hecho con Amor</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Nuestra cocina">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestro Menú</h2>
+                <p>Descubre nuestras especialidades preparadas con los mejores ingredientes</p>
+            </div>
+            
+            <div class="menu-categories">
+                <button class="category-btn active" data-category="todos">Todos</button>
+                <button class="category-btn" data-category="hamburguesas">Hamburguesas</button>
+                <button class="category-btn" data-category="sandwiches">Sándwiches</button>
+                <button class="category-btn" data-category="ensaladas">Ensaladas</button>
+                <button class="category-btn" data-category="bebidas">Bebidas</button>
+                <button class="category-btn" data-category="ofertas">Promociones</button>
+            </div>
+            
+            <div class="menu-items" id="menuItems">
+                <!-- Los productos se cargarán dinámicamente aquí -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Online Section -->
+    <section class="order-online-section" id="pedir-online">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pedir Online</h2>
+                <p>Disfruta de nuestra comida desde la comodidad de tu hogar</p>
+            </div>
+            
+            <div class="order-steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>1. Elegí tu pedido</h3>
+                    <p>Navegá por nuestro menú y seleccioná tus productos favoritos</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>2. Agregá al carrito</h3>
+                    <p>Añadí los productos a tu carrito y revisá tu pedido</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>3. Enviá por WhatsApp</h3>
+                    <p>Finalizá tu compra y enviá el pedido directamente por WhatsApp</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>4. Recibí tu pedido</h3>
+                    <p>Preparamos tu comida y te la llevamos o pasá a retirarla</p>
+                </div>
+            </div>
+            
+            <div class="delivery-info">
+                <div class="delivery-option">
+                    <i class="fas fa-motorcycle"></i>
+                    <div>
+                        <h3>Delivery</h3>
+                        <p>Te llevamos tu pedido a domicilio</p>
+                        <span class="delivery-cost">Costo de envío: $800</span>
+                    </div>
+                </div>
+                <div class="delivery-option">
+                    <i class="fas fa-store"></i>
+                    <div>
+                        <h3>Take Away</h3>
+                        <p>Pasá a retirar tu pedido por nuestro local</p>
+                        <span class="delivery-cost">Sin costo adicional</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="order-cta">
+                <h3>¿Qué estás esperando?</h3>
+                <p>Hacé tu pedido ahora y disfrutá de nuestra deliciosa comida</p>
+                <a href="#menu" class="btn btn-primary">Ver Menú y Pedir</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section" id="ubicacion">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Ubicación</h2>
+                <p>Visítanos y disfruta de nuestra comida en un ambiente acogedor</p>
+            </div>
+            
+            <div class="location-content">
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d236.66158192999018!2d-64.79154560123035!3d-30.736379861682927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1ses!2sar!4v1762455844583!5m2!1ses!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <div class="location-info">
+                    <h3>Horarios de Atención</h3>
+                    <ul class="schedule">
+                        <li><span>Lunes a Viernes:</span> 10:00 - 22:00</li>
+                        <li><span>Sábados:</span> 11:00 - 23:00</li>
+                        <li><span>Domingos:</span> 11:00 - 20:00</li>
+                    </ul>
+                    
+                    <h3>Pedidos y Reservas</h3>
+                    <div class="contact-methods">
+                        <a href="https://wa.me/5491122334455" class="contact-link whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>+54 9 11 2233-4455</span>
+                        </a>
+                        <a href="tel:+541122334455" class="contact-link phone">
+                            <i class="fas fa-phone"></i>
+                            <span>+54 11 2233-4455</span>
+                        </a>
+                    </div>
+                    
+                    <h3>Síguenos en Redes</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+                <p>¿Tienes alguna pregunta o comentario? Nos encantaría escucharte</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Av. Siempre Viva 742, Springfield</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+54 11 2233-4455</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@rinconcasero.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Información de Contacto</h3>
+                    <p>Para consultas, pedidos o reservas, puedes contactarnos a través de WhatsApp o teléfono.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCA1MCA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMjUiIGZpbGw9IiNlNzRjM2MiLz4KPHBhdGggZD0iTTE1IDM1TDM1IDE1TTE1IDE1TDM1IDM1IiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K" alt="El Rincón Casero">
+                        <h3>El Rincón Casero</h3>
+                    </div>
+                    <p>Comida casera preparada con los mejores ingredientes y mucho amor.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#menu">Menú</a></li>
+                        <li><a href="#pedir-online">Pedir Online</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#ubicacion">Ubicación</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Horarios</h4>
+                    <ul>
+                        <li>Lunes a Viernes: 10:00 - 22:00</li>
+                        <li>Sábados: 11:00 - 23:00</li>
+                        <li>Domingos: 11:00 - 20:00</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contacto</h4>
+                    <p>WhatsApp: +54 9 11 2233-4455</p>
+                    <p>Teléfono: +54 11 2233-4455</p>
+                    <p>Email: info@rinconcasero.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 El Rincón Casero. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Reviews Modal -->
+    <div class="modal" id="reviewModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Deja tu valoración</h3>
+            <p id="reviewProductName" class="product-name-review">Producto: </p>
+            <div class="form-group">
+                <label for="reviewerName">Tu nombre</label>
+                <input type="text" id="reviewerName" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="star-rating">
+                <span class="star" data-rating="1">★</span>
+                <span class="star" data-rating="2">★</span>
+                <span class="star" data-rating="3">★</span>
+                <span class="star" data-rating="4">★</span>
+                <span class="star" data-rating="5">★</span>
+            </div>
+            <p class="rating-text">Selecciona la cantidad de estrellas</p>
+            <textarea id="reviewComment" placeholder="Escribe tu comentario aquí... (opcional)"></textarea>
+            <button class="btn btn-primary" id="submitReview">Enviar Valoración</button>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <span class="close-modal">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Los productos del carrito se cargarán aquí -->
+        </div>
+        <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0</span>
+        </div>
+        
+        <!-- Formulario de información del pedido -->
+        <div class="order-info" id="orderInfo">
+            <h4>Información del Pedido</h4>
+            
+            <div class="delivery-options">
+                <div class="delivery-option-select">
+                    <input type="radio" id="delivery" name="deliveryType" value="delivery" checked>
+                    <label for="delivery">
+                        <i class="fas fa-motorcycle"></i>
+                        <span>Delivery</span>
+                    </label>
+                </div>
+                <div class="delivery-option-select">
+                    <input type="radio" id="takeaway" name="deliveryType" value="takeaway">
+                    <label for="takeaway">
+                        <i class="fas fa-store"></i>
+                        <span>Take Away</span>
+                    </label>
+                </div>
+            </div>
+            
+            <div class="delivery-form" id="deliveryForm">
+                <div class="form-group">
+                    <label for="customerName">Nombre y Apellido *</label>
+                    <input type="text" id="customerName" placeholder="Tu nombre completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerAddress">Dirección de entrega *</label>
+                    <input type="text" id="customerAddress" placeholder="Calle, número, piso, departamento" required>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryNotes">Instrucciones adicionales (opcional)</label>
+                    <textarea id="deliveryNotes" placeholder="Ej: Timbre rojo, dejar en portería, etc." rows="3"></textarea>
+                </div>
+            </div>
+            
+            <div class="takeaway-form" id="takeawayForm" style="display: none;">
+                <div class="form-group">
+                    <label for="customerNameTakeaway">Nombre para el pedido *</label>
+                    <input type="text" id="customerNameTakeaway" placeholder="Tu nombre o apodo" required>
+                </div>
+                <div class="form-group">
+                    <label for="pickupTime">Hora aproximada de retiro</label>
+                    <input type="text" id="pickupTime" placeholder="Ej: en 30 minutos, a las 20:00">
+                </div>
+            </div>
+        </div>
+        
+        <div class="cart-actions">
+            <button class="btn btn-secondary" id="continueShopping">Seguir Comprando</button>
+            <button class="btn btn-primary" id="checkoutBtn">Finalizar Pedido por WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div class="modal" id="adminLoginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Acceso Administrativo</h3>
+            <div class="form-group">
+                <label for="adminUsername">Usuario</label>
+                <input type="text" id="adminUsername" placeholder="Ingresa tu usuario">
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">Contraseña</label>
+                <input type="password" id="adminPassword" placeholder="Ingresa tu contraseña">
+            </div>
+            <button class="btn btn-primary" id="loginBtn">Iniciar Sesión</button>
+        </div>
+    </div>
+
+    <!-- Admin Panel Modal -->
+    <div class="modal admin-panel-modal" id="adminPanelModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Panel de Administración</h3>
+            
+            <div class="admin-tabs">
+                <div class="admin-tab active" data-tab="products">Productos</div>
+                <div class="admin-tab" data-tab="reviews">Valoraciones</div>
+            </div>
+            
+            <div class="admin-content">
+                <div class="admin-tab-content active" id="productsTab">
+                    <div class="admin-header">
+                        <h4>Gestión de Productos</h4>
+                        <button class="btn btn-primary" id="addProductBtn">Agregar Producto</button>
+                    </div>
+                    
+                    <div class="admin-filters">
+                        <div class="form-group">
+                            <label for="adminCategoryFilter">Filtrar por categoría:</label>
+                            <select id="adminCategoryFilter">
+                                <option value="todos">Todos</option>
+                                <option value="hamburguesas">Hamburguesas</option>
+                                <option value="sandwiches">Sándwiches</option>
+                                <option value="ensaladas">Ensaladas</option>
+                                <option value="bebidas">Bebidas</option>
+                                <option value="ofertas">Promociones</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="product-list" id="productList">
+                        <!-- Los productos se cargarán aquí -->
+                    </div>
+                </div>
+                
+                <div class="admin-tab-content" id="reviewsTab">
+                    <div class="admin-header">
+                        <h4>Valoraciones de Clientes</h4>
+                    </div>
+                    <div class="review-list" id="reviewList">
+                        <!-- Las valoraciones se cargarán aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
