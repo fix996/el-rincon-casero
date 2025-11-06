@@ -708,8 +708,8 @@ function processCheckout() {
     
     // Agregar costo de envío si es delivery
     if (deliveryType === 'delivery') {
-        total += 800;
-        message += `• Delivery - ${formatPrice(800)}\n`;
+        total += 1000;
+        message += `• Delivery - ${formatPrice(1000)}\n`;
     }
     
     message += `\n*Total: ${formatPrice(total)}*\n\n`;
@@ -723,7 +723,7 @@ function processCheckout() {
     const encodedMessage = encodeURIComponent(message);
     
     // Abrir WhatsApp con el mensaje
-    window.open(`https://wa.me/5491122334455?text=${encodedMessage}`, '_blank');
+    window.open(`https://wa.me/5493549576334?text=${encodedMessage}`, '_blank');
     
     // Limpiar carrito después del pedido
     cart = [];
@@ -1051,6 +1051,7 @@ function showNotification(message) {
         z-index: 10000;
         box-shadow: 0 3px 10px rgba(0,0,0,0.2);
         transition: opacity 0.3s;
+        font-family: 'Poppins', sans-serif;
     `;
     
     document.body.appendChild(notification);
